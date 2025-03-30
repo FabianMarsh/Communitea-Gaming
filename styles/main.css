@@ -1,0 +1,137 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    transition: all 0.3s;
+}
+
+/* vars */
+:root {
+    --pri-bg-col: #78294c;
+    --sec-bg-col: #f0dada;
+    --pri-col: #fff;
+    --sec-col: #78294c;
+
+    --sec-font: Helvetica, sans-serif;
+}
+
+/* header **********************************/
+
+header {
+    background: var(--pri-bg-col);
+    padding: clamp(20px, 6vw, 50px) clamp(5%, 10vw, 25%);
+}
+
+/* logo */
+
+.logo_container {
+    color: var(--pri-col);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: fit-content;
+        flex-wrap: wrap;
+        gap: 25px;
+        text-decoration: none;
+        color: inherit;
+        font-size: clamp(20px, 6vw, 40px);
+    }
+}
+
+.logo_image {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.nav_mobile_icon {
+    font-size: 30px;
+    min-height: 44px;
+    min-width: 44px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* nav */
+
+nav {
+    position: absolute;
+    inset: 0 -90% 0 auto;
+    background-color: var(--sec-bg-col);
+    font-family: var(--sec-font);
+    min-width: 80%;
+    max-width: 500px;
+    padding: 100px 5%;
+    a {
+        text-decoration: none;
+        color: var(--sec-col);
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        li {
+            padding: 10px 0;
+            border-bottom: #78294c 1px solid;
+
+            a:hover{
+                color: #000;
+            }
+        }
+    }
+}
