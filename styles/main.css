@@ -48,7 +48,11 @@ table {
 }
 
 a {
-    transition: all 0.3s;
+    transition: all 0.3s ease;
+}
+
+html {
+    overflow: hidden;
 }
 
 /* vars */
@@ -59,6 +63,12 @@ a {
     --sec-col: #78294c;
 
     --sec-font: Helvetica, sans-serif;
+
+    --breakpoint-sm-phone: 320px;
+    --breakpoint-phone: 480px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-sm-desktop: 992px;
+    --breakpoint-desktop: 1200px;
 }
 
 /* header **********************************/
@@ -66,6 +76,19 @@ a {
 header {
     background: var(--pri-bg-col);
     padding: clamp(20px, 6vw, 50px) clamp(5%, 10vw, 25%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--pri-col);
+}
+
+@media (min-width: 682px) {
+    header {
+        flex-direction: row;
+    }
 }
 
 /* logo */
@@ -88,7 +111,7 @@ header {
         gap: 25px;
         text-decoration: none;
         color: inherit;
-        font-size: clamp(20px, 6vw, 40px);
+        font-size: clamp(20px, 3vw, 40px);
     }
 }
 
@@ -107,20 +130,29 @@ header {
     align-items: center;
 }
 
+.nav_mobile_icon:active + nav{
+    right: 0;
+}
+
 /* nav */
 
 nav {
     position: absolute;
     inset: 0 -90% 0 auto;
+    z-index: 99;
     background-color: var(--sec-bg-col);
     font-family: var(--sec-font);
     min-width: 80%;
     max-width: 500px;
     padding: 100px 5%;
+
+    transition: all 0.3s ease;
+
     a {
         text-decoration: none;
         color: var(--sec-col);
     }
+
     ul {
         display: flex;
         flex-direction: column;
@@ -133,5 +165,39 @@ nav {
                 color: #000;
             }
         }
+    }
+}
+
+nav:hover {
+    right: 0;
+}
+
+/* nav media queries */
+
+@media (min-width: 995px) {
+    .nav_mobile_icon {
+        display: none;
+    }
+    nav {
+        position: initial;
+        padding: 0;
+        width: initial;
+        min-width: initial;
+        max-width: initial;
+        border-radius: 50px;
+        ul {
+            flex-direction: row;
+            padding: 10px 25px;
+            gap: clamp(10px);
+            li {
+                border: none;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    nav ul {
+        gap: 50px
     }
 }
