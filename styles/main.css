@@ -48,19 +48,24 @@ table {
 }
 
 a {
+    color: var(--pri-col);
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
-html {
-    overflow: hidden;
+.email {
+    text-decoration: underline;
 }
 
 /* vars */
 :root {
     --pri-bg-col: #78294c;
     --sec-bg-col: #f0dada;
+    --ter-bg-col: #020202;
+
     --pri-col: #fff;
     --sec-col: #78294c;
+    --ter-col: #a29c9c;
 
     --sec-font: Helvetica, sans-serif;
 
@@ -75,7 +80,7 @@ html {
 
 header {
     background: var(--pri-bg-col);
-    padding: clamp(20px, 6vw, 50px) clamp(5%, 10vw, 25%);
+    padding: clamp(20px, 6vw, 50px) 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -83,6 +88,20 @@ header {
     flex-direction: column;
     gap: 20px;
     color: var(--pri-col);
+
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 99;
+    width: 100%;
+}
+
+.fade {
+    position: absolute;
+    inset: auto 0 -60px 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--pri-bg-col);
+    opacity: 0.9;
 }
 
 @media (min-width: 682px) {
@@ -101,6 +120,7 @@ header {
     flex-wrap: wrap;
     gap: 20px;
     text-align: center;
+    padding-left: clamp(5%, 10vw, 25%);
 
     a {
         display: flex;
@@ -138,20 +158,15 @@ header {
 
 nav {
     position: absolute;
-    inset: 0 -90% 0 auto;
+    inset: 0 -100vw 0 auto;
     z-index: 99;
     background-color: var(--sec-bg-col);
     font-family: var(--sec-font);
     min-width: 80%;
     max-width: 500px;
-    padding: 100px 5%;
+    padding: 100px clamp(5%, 10vw, 25%);
 
     transition: all 0.3s ease;
-
-    a {
-        text-decoration: none;
-        color: var(--sec-col);
-    }
 
     ul {
         display: flex;
@@ -165,6 +180,10 @@ nav {
                 color: #000;
             }
         }
+    }
+
+    a {
+        color: var(--sec-col);
     }
 }
 
@@ -181,6 +200,7 @@ nav:hover {
     nav {
         position: initial;
         padding: 0;
+        margin-right: clamp(5%, 10vw, 25%);
         width: initial;
         min-width: initial;
         max-width: initial;
@@ -199,5 +219,91 @@ nav:hover {
 @media (min-width: 1200px) {
     nav ul {
         gap: 50px
+    }
+}
+
+/* welcome **********************************/
+
+.welcome {
+    height: 100vh;
+    max-height: 820px;
+    background-image: url(/assets/catan-background.png);
+    background-position: center;
+    background-size: cover;
+    margin-top: 17vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: clamp(10px, 6vw, 30px);
+
+    text-align: center;
+
+    h1 {
+        color: var(--pri-col);
+        font-size: clamp(40px, 6vw, 75px);
+    }
+}
+
+.welcome_links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    li a {
+        font-size: clamp(20px, 3vw, 30px);
+        background: var(--pri-bg-col);
+        border-radius: 15px;
+        padding: 10px 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    li a:hover {
+        background-color: var(--pri-col);
+        color: var(--pri-bg-col);
+        transition-duration: .6s;
+    }
+}
+
+/* find us **********************************/
+
+.find_us {
+    background: var(--pri-bg-col);
+    color: var(--pri-col);
+    padding: clamp(50px, 6vw, 150px) 10%;
+
+    strong {
+        font-weight: 700;
+    }
+
+    h1 {
+        font-size: clamp(30px, 6vw, 60px);
+        margin-bottom: 50px;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        font-size: clamp(15px, 3vw, 25px);
+    }
+}
+
+/* footer **********************************/
+
+footer {
+    background-color: var(--ter-bg-col);
+    color: var(--ter-col);
+    padding: clamp(50px, 6vw, 70px) 10%;
+    text-align: center;
+    opacity: 0.9;
+    a {
+        color: inherit;
     }
 }
