@@ -51,6 +51,24 @@ a {
     color: var(--pri-col);
     text-decoration: none;
     transition: all 0.3s ease;
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.facebook:hover {
+    color: #4267B2;
+}
+
+.youtube:hover {
+    color: #CD201F;
+}
+
+.instagram:hover {
+    color: #C13584;
+}
+
+.tiktok:hover {
+    color: #00f2ea;
 }
 
 .email {
@@ -176,7 +194,7 @@ nav {
             padding: 10px 0;
             border-bottom: #78294c 1px solid;
 
-            a:hover{
+            a:hover, .active{
                 color: #000;
             }
         }
@@ -219,6 +237,27 @@ nav:hover {
 @media (min-width: 1200px) {
     nav ul {
         gap: 50px
+    }
+}
+
+/* social links **********************************/
+
+.social_links {
+    position: fixed;
+    inset: 45vh 0 auto auto;
+    background-color: #00000090;
+
+    padding: 20px 30px;
+
+    li {
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 44px;
+            min-width: 44px;
+            font-size: 22px;
+        }
     }
 }
 
